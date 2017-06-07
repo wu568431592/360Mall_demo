@@ -3,8 +3,9 @@
 import Vue from 'vue'
 import App from './App'
 import router from './router'
-
-Vue.config.productionTip = false
+require('!style-loader!css-loader!less-loader!./assets/css/main.less')
+require('!style-loader!css-loader!less-loader!./assets/css/animate.css')
+//Vue.config.productionTip = false
 
 /* eslint-disable no-new */
 new Vue({
