@@ -24,7 +24,7 @@ For detailed explanation on how things work, checkout the [guide](http://vuejs-t
 项目文件中的dist 文件夹 设置为服务器 可以安装 xampp qampp 等Apache 服务器，并将服务器地址设置为本项目的dist文件夹下。
 修改 Apache 服务器配置 文件 httpd.conf 在文件尾部添加以下代码
       <Directory />
-
+      <Directory />
       #对所有域名开放
       Header set Access-Control-Allow-Origin *
 
