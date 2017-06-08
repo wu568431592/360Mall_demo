@@ -79,3 +79,6 @@ h6 {
 .cf {
   clear: both;
 }
+.padding-sm {
+  padding: 0.5rem;
+}

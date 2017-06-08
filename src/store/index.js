@@ -3,7 +3,7 @@
  */
 import Vue from 'vue'
 import Vuex from 'vuex'
-//import axios from 'axios'
+import axios from 'axios'
 Vue.use(Vuex);
 var state;
 
@@ -24,10 +24,10 @@ const getters = {
     xmlhttp.open('GET','http://192.168.78.65/json/searchDetails.php',false);
     xmlhttp.send();
     return details
-    // var details;
+    //var details
     // axios.get('http://192.168.78.65/json/searchDetails.php')
     //   .then(function (response) {
-    //     console.log(response.data);
+    //     //console.log(response.data);
     //     details = response.data
     //   })
     //   .catch(function (error) {
