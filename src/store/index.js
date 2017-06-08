@@ -6,6 +6,9 @@ import Vuex from 'vuex'
 import axios from 'axios'
 Vue.use(Vuex);
 var state;
+state ={
+  serverIP : '192.168.78.65'
+}
 
 const mutations ={
 
@@ -21,7 +24,7 @@ const getters = {
         details = {}
       }
     }
-    xmlhttp.open('GET','http://192.168.78.65/json/searchDetails.php',false);
+    xmlhttp.open('GET','http://'+state.serverIP+'/json/searchDetails.php',false);
     xmlhttp.send();
     return details
     //var details
@@ -36,6 +39,9 @@ const getters = {
     // console.log(details)
     // return details
   },
+  getServerIP:function(){
+    return state.serverIP;
+  }
 }
 const store = new Vuex.Store({
   state,

@@ -13,44 +13,51 @@
             </Marquee>
           </div>
         </div>
+        <indexTitle words="明星单品"></indexTitle>
+        <indexHasHeader></indexHasHeader>
     </div>
 </template>
 
 <script>
-    const baseList = [{
-      url: 'javascript:',
-      img: 'http://192.168.78.65/images/2bdfe31f-9fe0-4430-8ef7-b9824997e80b.jpg',
-    }, {
-      url: 'javascript:',
-      img: 'http://192.168.78.65/images/64c9b89c-6f74-4940-a682-1635046f66db.jpg',
-    }, {
-      url: 'javascript:',
-      img: 'http://192.168.78.65/images/a10679c5-c5d0-4443-89c4-b4e463c8889b.jpg',
-    },{
-      url: 'javascript:',
-      img: 'http://192.168.78.65/images/a10679c5-c5d0-4443-89c4-b4e463c8889b.jpg',
-    }]
     import searchMain from '../components/search-main/search-main.vue'
+    import indexTitle from '../components/index-title/index-title.vue'
+    import indexHasHeader from '../components/index-hasheader/index-hasheader.vue'
     import { Swiper,Marquee,MarqueeItem }  from 'vux'
     export default {
         name:'index',
-        components:{searchMain,Swiper,Marquee,MarqueeItem},
+        components:{searchMain,indexHasHeader,indexTitle,Swiper,Marquee,MarqueeItem},
         data(){
             return{
                 showSearch:false,
-                demo06_list:baseList,
+                demo06_list:[],
                 topics:[
                     "360手机N5S 6月7日10点放量抢购！",
                     "360商城邀您参加用户调研",
                     "360商城网站信息重组和系统升级公告",
                     "智能in货放肆购！N5爆品最高特惠100元！"
                 ],
+                serverIP : this.$store.state.serverIP,
             }
         },
         methods:{
             showsearchmain:function(){
                 this.showSearch = true;
             }
+        },
+        mounted:function(){
+            this.demo06_list = [{
+              url: 'javascript:',
+              img: 'http://'+this.serverIP+'/images/2bdfe31f-9fe0-4430-8ef7-b9824997e80b.jpg',
+            }, {
+              url: 'javascript:',
+              img: 'http://'+this.serverIP+'/images/64c9b89c-6f74-4940-a682-1635046f66db.jpg',
+            }, {
+              url: 'javascript:',
+              img: 'http://'+this.serverIP+'/images/a10679c5-c5d0-4443-89c4-b4e463c8889b.jpg',
+            },{
+              url: 'javascript:',
+              img: 'http://'+this.serverIP+'/images/a10679c5-c5d0-4443-89c4-b4e463c8889b.jpg',
+            }]
         }
     }
 </script>
