@@ -17,7 +17,6 @@ npm run build
 # build for production and view the bundle analyzer report
 npm run build --report
 ```
-
 For detailed explanation on how things work, checkout the [guide](http://vuejs-templates.github.io/webpack/) and [docs for vue-loader](http://vuejs.github.io/vue-loader).
 
 #服务器设置
@@ -31,6 +30,7 @@ For detailed explanation on how things work, checkout the [guide](http://vuejs-t
 
       </Directory>
 使得 apache服务器 支持跨域请求。
+#
 #设置服务器IP
 将项目文件中 src/store/index.js 中 state的 serverIP 修改为本机IP地址即可。
 
