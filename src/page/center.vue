@@ -8,7 +8,8 @@
     export default {
         name:'center',
         mounted:function(){
-          this.changeTarBar(3)
+          this.changeTarBar(3);
+          this.isLogin();
         },
         beforeMount:function(){
           this.$store.state.isBarshow = true;
@@ -17,6 +18,14 @@
           changeTarBar(index){
             var me = document.getElementsByClassName('weui-tabbar__item')
             me[index].click();
+          },
+          isLogin(){
+              var userName = localStorage.getItem('userName');
+              console.log(userName);
+              if(userName == null){
+                alert('先登录');
+                this.$router.push({path:'/index'})
+              }
           }
         }
     }

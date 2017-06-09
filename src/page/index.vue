@@ -125,7 +125,7 @@
               span.innerText = 'load error'
             },
             changeTarBar(index){
-              var me = document.getElementsByClassName('weui-tabbar__item')
+              var me = document.getElementsByClassName('weui-tabbar__item');
               me[index].click();
             }
         },
