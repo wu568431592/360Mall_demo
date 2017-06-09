@@ -26,12 +26,12 @@
       components:{XImg},
       methods:{
         success (src, ele) {
-          console.log('success load', src)
+          //console.log('success load', src)
           const span = ele.parentNode.querySelector('span')
           ele.parentNode.removeChild(span)
         },
         error (src, ele, msg) {
-          console.log('error load', msg, src)
+          //console.log('error load', msg, src)
           const span = ele.parentNode.querySelector('span')
           span.innerText = 'load error'
         }

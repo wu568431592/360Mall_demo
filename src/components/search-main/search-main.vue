@@ -32,6 +32,7 @@
           ]),
           closesearchmain:function(){
               this.$parent.showSearch = false;
+              this.$store.state.isBarshow = true;
           }
         },
         mounted:function(){

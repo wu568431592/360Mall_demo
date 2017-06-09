@@ -4,13 +4,15 @@
 
     <view-box ref="viewBox" body-padding-bottom="55px">
       <router-view></router-view>
-      <tabbar v-show='isBarShow' class="diy-tabbar">
-        <tabbar-item selected id="tabIndex" @click.native="">
+      <tabbar class="diy-tabbar" v-show="meshow">
+        <tabbar-item selected id="tabIndex">
           <img slot="icon" src="./assets/images/t011de32570ba76b7d2.png">
+          <img slot="icon-active" src="./assets/images/t011a7cd356bb976213.png">
           <span slot="label">首页</span>
         </tabbar-item>
         <tabbar-item>
           <img slot="icon" src="./assets/images/t01e287c3490e3f14da.png">
+          <img slot="icon-active" src="./assets/images/t0160f3f274548cc6ea.png">
           <span slot="label">分类</span>
         </tabbar-item>
         <tabbar-item >
@@ -19,6 +21,7 @@
         </tabbar-item>
         <tabbar-item>
           <img slot="icon" src="./assets/images/t01821a03716758d2e1.png">
+          <img slot="icon-active" src="./assets/images/t01bcd9237ad4dc6e8c.png">
           <span slot="label">我</span>
         </tabbar-item>
       </tabbar>
@@ -38,15 +41,20 @@
     computed: {
       ...mapState({
         isLoading: state => state.vux.isLoading
-      })
+      }),
+      meshow:function(){
+          return this.$store.getters.getIsBarshow
+      }
     },
     methods:{
 
     },
     data(){
         return{
-            isBarShow:true,
         }
+    },
+    watch:{
+
     }
   }
 </script>

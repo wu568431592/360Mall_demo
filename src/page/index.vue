@@ -68,6 +68,7 @@
     import indexHasHeader from '../components/index-hasheader/index-hasheader.vue'
     import indexNoHeader from '../components/index-noheader/index-noheader.vue'
     import { Swiper,Marquee,MarqueeItem,Tabbar, TabbarItem,XImg }  from 'vux'
+    import { mapState } from 'vuex'
     export default {
         name:'index',
         components:{searchMain,indexHasHeader,indexNoHeader,indexTitle,Swiper,Marquee,MarqueeItem,Tabbar,TabbarItem,XImg},
@@ -91,14 +92,17 @@
         methods:{
             showsearchmain:function(){
                 this.showSearch = true;
+                console.log(this.$store.state.isBarshow)
+                this.$store.state.isBarshow = false;
+                console.log(this.$store.state.isBarshow)
             },
             success (src, ele) {
-              console.log('success load', src)
+              //console.log('success load', src)
               const span = ele.parentNode.querySelector('span')
               ele.parentNode.removeChild(span)
             },
             error (src, ele, msg) {
-              console.log('error load', msg, src)
+              //console.log('error load', msg, src)
               const span = ele.parentNode.querySelector('span')
               span.innerText = 'load error'
             }
@@ -117,7 +121,8 @@
               url: 'javascript:',
               img: 'http://'+this.serverIP+'/images/a10679c5-c5d0-4443-89c4-b4e463c8889b.jpg',
             }]
-        }
+        },
+        props:['vvv']
     }
 </script>
 

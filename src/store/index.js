@@ -7,7 +7,8 @@ import axios from 'axios'
 Vue.use(Vuex);
 var state;
 state ={
-  serverIP : '192.168.78.65'
+  serverIP : '192.168.78.65',
+  isBarshow: true,
 }
 
 const mutations ={
@@ -41,6 +42,9 @@ const getters = {
   },
   getServerIP:function(){
     return state.serverIP;
+  },
+  getIsBarshow:function(){
+    return state.isBarshow;
   }
 }
 const store = new Vuex.Store({
