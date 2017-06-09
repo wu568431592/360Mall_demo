@@ -1,6 +1,6 @@
 <template>
     <div id="center">
-
+      center
     </div>
 </template>
 

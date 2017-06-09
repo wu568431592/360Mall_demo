@@ -19,7 +19,7 @@
           <img slot="icon" src="./assets/images/t01069055004f2dcc51.png">
           <span slot="label">购物车</span>
         </tabbar-item>
-        <tabbar-item>
+        <tabbar-item link="/center">
           <img slot="icon" src="./assets/images/t01821a03716758d2e1.png">
           <img slot="icon-active" src="./assets/images/t01bcd9237ad4dc6e8c.png">
           <span slot="label">我</span>
