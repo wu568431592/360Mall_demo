@@ -1,5 +1,6 @@
 <template>
     <div id="index">
+        <div class="gotop" v-show="gotopshow"><img src="../assets/images/top.png" alt=""></div>
         <searchMain class="searchmain" v-show="showSearch"></searchMain>
         <div class="search-box" @click="showsearchmain">
           <input type="text" placeholder="N5S">
@@ -59,6 +60,25 @@
           <x-img :src="src2"  @on-success="success" @on-error="error" class="ximg-demo" error-class="ximg-error" :offset="-100" container="#vux_view_box_body"></x-img>
         </div>
         <indexNoHeader></indexNoHeader>
+        <indexTitle words="点击查看更多商品>>"></indexTitle>
+        <grid class="diy-grid">
+          <grid-item>
+              <div>7</div>
+              <h4>7天无理由退货</h4>
+          </grid-item>
+          <grid-item >
+            <div>15</div>
+            <h4>质量问题15天换货</h4>
+          </grid-item>
+          <grid-item >
+            <div>包</div>
+            <h4>满99元包邮</h4>
+          </grid-item>
+        </grid>
+        <div class="padding-lg">
+          <p><em>客服热线：</em><span><i><a href="tel:400-6822-360">400-6822-360</a> 周一到周日 9:00-18:00</i><i><a href="tel:400-0111-366">400-0111-366</a> (手机类产品)</i><i>周一至周日 8:00-22:00（仅收市话费）</i></span></p>
+          <p class="copyright">360商城©2013-2016 版权所有</p>
+        </div>
     </div>
 </template>
 
@@ -67,11 +87,11 @@
     import indexTitle from '../components/index-title/index-title.vue'
     import indexHasHeader from '../components/index-hasheader/index-hasheader.vue'
     import indexNoHeader from '../components/index-noheader/index-noheader.vue'
-    import { Swiper,Marquee,MarqueeItem,Tabbar, TabbarItem,XImg }  from 'vux'
+    import { Swiper,Marquee,MarqueeItem,Tabbar, TabbarItem,XImg,Grid, GridItem }  from 'vux'
     import { mapState } from 'vuex'
     export default {
         name:'index',
-        components:{searchMain,indexHasHeader,indexNoHeader,indexTitle,Swiper,Marquee,MarqueeItem,Tabbar,TabbarItem,XImg},
+        components:{searchMain,indexHasHeader,indexNoHeader,indexTitle,Swiper,Marquee,MarqueeItem,Tabbar,TabbarItem,XImg,Grid, GridItem},
         data(){
             return{
                 showSearch:false,
@@ -85,16 +105,14 @@
                 serverIP : this.$store.state.serverIP,
                 src:'http://'+this.$store.state.serverIP+'/images/3f257ca7-072d-4839-a237-1904367e9ed0.jpg',
                 src1:'http://'+this.$store.state.serverIP+'/images/0dfc7f14-bd8c-4176-a764-116a82f0f2c3.jpg',
-                src2:'http://'+this.$store.state.serverIP+'/images/58b085b2-1ae3-4520-b728-5f333bc3b2c5.jpg'
-
+                src2:'http://'+this.$store.state.serverIP+'/images/58b085b2-1ae3-4520-b728-5f333bc3b2c5.jpg',
+                gotopshow:false,
             }
         },
         methods:{
             showsearchmain:function(){
                 this.showSearch = true;
-                console.log(this.$store.state.isBarshow)
                 this.$store.state.isBarshow = false;
-                console.log(this.$store.state.isBarshow)
             },
             success (src, ele) {
               //console.log('success load', src)
@@ -105,7 +123,11 @@
               //console.log('error load', msg, src)
               const span = ele.parentNode.querySelector('span')
               span.innerText = 'load error'
-            }
+            },
+            menu() {
+              this.gotopshow = true;
+            },
+
         },
         mounted:function(){
             this.demo06_list = [{
@@ -120,9 +142,12 @@
             },{
               url: 'javascript:',
               img: 'http://'+this.serverIP+'/images/a10679c5-c5d0-4443-89c4-b4e463c8889b.jpg',
-            }]
+            }];
+            document.body.querySelector('#vux_view_box_body.weui-tab__panel.vux-fix-safari-overflow-scrolling').addEventListener('scroll',this.menu)
         },
-        props:['vvv']
+        computed:{
+
+        }
     }
 </script>
 
@@ -130,6 +155,17 @@
 <style scoped lang="less">
   @import "../assets/css/variables.less";
   #index{
+    .gotop{
+      width:3rem;
+      height:3rem;
+      position: fixed;
+      right:10px;
+      bottom:70px;
+      z-index:10000;
+      img{
+        width:100%;
+      }
+    }
     .search-box{
       width:100%;
       height:3.2rem;
@@ -147,7 +183,7 @@
       width:100%;
       height:100%;
       position: fixed;
-      z-index:10;
+      z-index:10000000000;
       background: @white ;
     }
     .topic{
@@ -208,6 +244,62 @@
     .imggg-box img{
       width:100%;
       height: 11rem;
+    }
+    .diy-grid{
+      a{
+        color:#666;
+        padding:1rem 0.4rem;
+        div{
+          width:2.5rem;
+          height:2.5rem;
+          line-height:2.5rem;
+          margin:0 auto;
+          text-align: center;
+          border:1px solid #aaa;
+          border-radius:2.5rem;
+          font-size:90%;
+        }
+        h4{
+          text-align: center;
+          font-size:80%;
+          padding:0.2rem;
+        }
+      }
+    }
+    .padding-lg{
+      padding:2rem;
+      p{
+        overflow: hidden;
+        width: 100%;
+        margin: 0 auto;
+        color:#999;
+        em{
+          float: left;
+          vertical-align: top;
+          height: 2rem;
+          line-height: 2rem;
+          font-size:85%;
+        }
+        span{
+          font-size:85%;
+          float: left;
+          vertical-align: top;
+          i{
+            display: block;
+            text-align: left;
+            height: 2rem;
+            line-height: 2rem;
+            a{
+              color:#666;
+            }
+          }
+        }
+      }
+      p.copyright{
+        margin-top:0.5rem;
+        font-size: 85%;
+        text-align: center;
+      }
     }
   }
 </style>
