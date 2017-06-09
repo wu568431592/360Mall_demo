@@ -15,6 +15,16 @@
         </div>
         <indexTitle words="明星单品"></indexTitle>
         <indexHasHeader></indexHasHeader>
+        <indexTitle words="新品上市"></indexTitle>
+        <div class="big-imgs">
+          <a href="#">
+            <img src="../assets/images/2bdfe31f-9fe0-4430-8ef7-b9824997e80b.jpg" alt="">
+            <h3>360手机 N5S 全网通 6GB+64GB 幻影黑色 移动联通电信4G手机 双卡双待</h3>
+            <p>1699.00</p>
+          </a>
+        </div>
+        <indexTitle words="手机"></indexTitle>
+
     </div>
 </template>
 
@@ -22,10 +32,10 @@
     import searchMain from '../components/search-main/search-main.vue'
     import indexTitle from '../components/index-title/index-title.vue'
     import indexHasHeader from '../components/index-hasheader/index-hasheader.vue'
-    import { Swiper,Marquee,MarqueeItem }  from 'vux'
+    import { Swiper,Marquee,MarqueeItem,Tabbar, TabbarItem }  from 'vux'
     export default {
         name:'index',
-        components:{searchMain,indexHasHeader,indexTitle,Swiper,Marquee,MarqueeItem},
+        components:{searchMain,indexHasHeader,indexTitle,Swiper,Marquee,MarqueeItem,Tabbar, TabbarItem},
         data(){
             return{
                 showSearch:false,
@@ -66,7 +76,6 @@
 <style scoped lang="less">
   @import "../assets/css/variables.less";
   #index{
-    height:100%;
     .search-box{
       width:100%;
       height:3.2rem;
@@ -114,6 +123,33 @@
         }
       }
     }
+    .big-imgs{
+      img{
+        width:100%;
+      }
+      h3{
+        display: block;
+        padding:1rem 1rem;
+        font-size: 85%;
+        color: #222;
+      }
+      p{
+        padding:0rem 1rem 1rem 1rem;
+        font-size: 80%;
+        color: #999;
+        white-space: nowrap;
+        text-overflow: ellipsis;
+        -o-text-overflow: ellipsis;
+        overflow: hidden;
+      }
+    }
+    .tabbar-box{
+      width:100%;
+      height:5rem;
+      position: absolute;
+      bottom:0;
+      left:0;
+      z-index: 1000;
+    }
   }
-
 </style>

@@ -82,3 +82,6 @@ h6 {
 .padding-sm {
   padding: 0.5rem;
 }
+a {
+  text-decoration: none;
+}
