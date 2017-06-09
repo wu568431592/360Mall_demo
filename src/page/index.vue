@@ -24,7 +24,41 @@
           </a>
         </div>
         <indexTitle words="手机"></indexTitle>
-
+        <div class="imggg-box">
+          <span><img src="../assets/images/default_img.jpg"></span>
+          <x-img :src="src"  @on-success="success" @on-error="error" class="ximg-demo" error-class="ximg-error" :offset="-100" container="#vux_view_box_body"></x-img>
+        </div>
+        <indexNoHeader></indexNoHeader>
+        <indexTitle words="数码"></indexTitle>
+        <div class="imggg-box">
+          <span><img src="../assets/images/default_img.jpg"></span>
+          <x-img :src="src1"  @on-success="success" @on-error="error" class="ximg-demo" error-class="ximg-error" :offset="-100" container="#vux_view_box_body"></x-img>
+        </div>
+        <indexNoHeader></indexNoHeader>
+        <indexTitle words="影音娱乐"></indexTitle>
+        <div class="imggg-box">
+          <span><img src="../assets/images/default_img.jpg"></span>
+          <x-img :src="src2"  @on-success="success" @on-error="error" class="ximg-demo" error-class="ximg-error" :offset="-100" container="#vux_view_box_body"></x-img>
+        </div>
+        <indexNoHeader></indexNoHeader>
+        <indexTitle words="手机"></indexTitle>
+        <div class="imggg-box">
+          <span><img src="../assets/images/default_img.jpg"></span>
+          <x-img :src="src"  @on-success="success" @on-error="error" class="ximg-demo" error-class="ximg-error" :offset="-100" container="#vux_view_box_body"></x-img>
+        </div>
+        <indexNoHeader></indexNoHeader>
+        <indexTitle words="数码"></indexTitle>
+        <div class="imggg-box">
+          <span><img src="../assets/images/default_img.jpg"></span>
+          <x-img :src="src1"  @on-success="success" @on-error="error" class="ximg-demo" error-class="ximg-error" :offset="-100" container="#vux_view_box_body"></x-img>
+        </div>
+        <indexNoHeader></indexNoHeader>
+        <indexTitle words="影音娱乐"></indexTitle>
+        <div class="imggg-box">
+          <span><img src="../assets/images/default_img.jpg"></span>
+          <x-img :src="src2"  @on-success="success" @on-error="error" class="ximg-demo" error-class="ximg-error" :offset="-100" container="#vux_view_box_body"></x-img>
+        </div>
+        <indexNoHeader></indexNoHeader>
     </div>
 </template>
 
@@ -32,10 +66,11 @@
     import searchMain from '../components/search-main/search-main.vue'
     import indexTitle from '../components/index-title/index-title.vue'
     import indexHasHeader from '../components/index-hasheader/index-hasheader.vue'
-    import { Swiper,Marquee,MarqueeItem,Tabbar, TabbarItem }  from 'vux'
+    import indexNoHeader from '../components/index-noheader/index-noheader.vue'
+    import { Swiper,Marquee,MarqueeItem,Tabbar, TabbarItem,XImg }  from 'vux'
     export default {
         name:'index',
-        components:{searchMain,indexHasHeader,indexTitle,Swiper,Marquee,MarqueeItem,Tabbar, TabbarItem},
+        components:{searchMain,indexHasHeader,indexNoHeader,indexTitle,Swiper,Marquee,MarqueeItem,Tabbar,TabbarItem,XImg},
         data(){
             return{
                 showSearch:false,
@@ -47,11 +82,25 @@
                     "智能in货放肆购！N5爆品最高特惠100元！"
                 ],
                 serverIP : this.$store.state.serverIP,
+                src:'http://'+this.$store.state.serverIP+'/images/3f257ca7-072d-4839-a237-1904367e9ed0.jpg',
+                src1:'http://'+this.$store.state.serverIP+'/images/0dfc7f14-bd8c-4176-a764-116a82f0f2c3.jpg',
+                src2:'http://'+this.$store.state.serverIP+'/images/58b085b2-1ae3-4520-b728-5f333bc3b2c5.jpg'
+
             }
         },
         methods:{
             showsearchmain:function(){
                 this.showSearch = true;
+            },
+            success (src, ele) {
+              console.log('success load', src)
+              const span = ele.parentNode.querySelector('span')
+              ele.parentNode.removeChild(span)
+            },
+            error (src, ele, msg) {
+              console.log('error load', msg, src)
+              const span = ele.parentNode.querySelector('span')
+              span.innerText = 'load error'
             }
         },
         mounted:function(){
@@ -150,6 +199,10 @@
       bottom:0;
       left:0;
       z-index: 1000;
+    }
+    .imggg-box img{
+      width:100%;
+      height: 11rem;
     }
   }
 </style>
