@@ -124,10 +124,13 @@
               const span = ele.parentNode.querySelector('span')
               span.innerText = 'load error'
             },
-            menu() {
-              this.gotopshow = true;
-            },
-
+            changeTarBar(index){
+              var me = document.getElementsByClassName('weui-tabbar__item')
+              me[index].click();
+            }
+        },
+        beforeMount:function(){
+          this.$store.state.isBarshow = true;
         },
         mounted:function(){
             this.demo06_list = [{
@@ -143,11 +146,8 @@
               url: 'javascript:',
               img: 'http://'+this.serverIP+'/images/a10679c5-c5d0-4443-89c4-b4e463c8889b.jpg',
             }];
-            document.body.querySelector('#vux_view_box_body.weui-tab__panel.vux-fix-safari-overflow-scrolling').addEventListener('scroll',this.menu)
+            this.changeTarBar(0);
         },
-        computed:{
-
-        }
     }
 </script>
 
@@ -262,7 +262,7 @@
         h4{
           text-align: center;
           font-size:80%;
-          padding:0.2rem;
+          padding:0.2rem 0rem;
         }
       }
     }

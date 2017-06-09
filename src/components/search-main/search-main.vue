@@ -93,6 +93,7 @@
       .header-right{
         height:100%;
         width:15%;
+        font-size:90%;
         padding:0.9rem 0.1rem 0.5rem 1rem;
       }
     }
