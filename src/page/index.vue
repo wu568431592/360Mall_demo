@@ -79,6 +79,8 @@
           <p><em>客服热线：</em><span><i><a href="tel:400-6822-360">400-6822-360</a> 周一到周日 9:00-18:00</i><i><a href="tel:400-0111-366">400-0111-366</a> (手机类产品)</i><i>周一至周日 8:00-22:00（仅收市话费）</i></span></p>
           <p class="copyright">360商城©2013-2016 版权所有</p>
         </div>
+        <Metabbar></Metabbar>
+        <alert v-show="showAlert"></alert>
     </div>
 </template>
 
@@ -87,11 +89,13 @@
     import indexTitle from '../components/index-title/index-title.vue'
     import indexHasHeader from '../components/index-hasheader/index-hasheader.vue'
     import indexNoHeader from '../components/index-noheader/index-noheader.vue'
-    import { Swiper,Marquee,MarqueeItem,Tabbar, TabbarItem,XImg,Grid, GridItem }  from 'vux'
+    import Metabbar from '../components/Metabbar/Metabbar.vue'
+    import alert from '../components/alert/alert.vue'
+    import { Swiper,Marquee,MarqueeItem,XImg,Grid, GridItem }  from 'vux'
     import { mapState } from 'vuex'
     export default {
         name:'index',
-        components:{searchMain,indexHasHeader,indexNoHeader,indexTitle,Swiper,Marquee,MarqueeItem,Tabbar,TabbarItem,XImg,Grid, GridItem},
+        components:{alert,Metabbar,searchMain,indexHasHeader,indexNoHeader,indexTitle,Swiper,Marquee,MarqueeItem,XImg,Grid, GridItem},
         data(){
             return{
                 showSearch:false,
@@ -107,12 +111,12 @@
                 src1:'http://'+this.$store.state.serverIP+'/images/0dfc7f14-bd8c-4176-a764-116a82f0f2c3.jpg',
                 src2:'http://'+this.$store.state.serverIP+'/images/58b085b2-1ae3-4520-b728-5f333bc3b2c5.jpg',
                 gotopshow:false,
+                showAlert:false
             }
         },
         methods:{
             showsearchmain:function(){
                 this.showSearch = true;
-                this.$store.state.isBarshow = false;
             },
             success (src, ele) {
               //console.log('success load', src)
@@ -126,11 +130,13 @@
             },
             changeTarBar(index){
               var me = document.getElementsByClassName('weui-tabbar__item');
-              me[index].click();
+              setTimeout(()=>{
+                me[index].click();
+              },100)
             }
         },
         beforeMount:function(){
-          this.$store.state.isBarshow = true;
+
         },
         mounted:function(){
             this.demo06_list = [{
@@ -160,7 +166,6 @@
       height:3rem;
       position: fixed;
       right:10px;
-      bottom:70px;
       z-index:10000;
       img{
         width:100%;

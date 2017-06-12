@@ -1,37 +1,44 @@
 <template>
     <div id="center">
-      center
+      <Metabbar></Metabbar>
     </div>
 </template>
 
 <script>
+    import Metabbar from '../components/Metabbar/Metabbar.vue'
+    import alert from '../components/alert/alert.vue'
     export default {
         name:'center',
+        components:{Metabbar,alert},
+        data(){
+          return{
+              showAlert:false,
+          }
+        },
         mounted:function(){
           this.changeTarBar(3);
-          this.isLogin();
         },
         beforeMount:function(){
-          this.$store.state.isBarshow = true;
+
         },
         methods:{
           changeTarBar(index){
-            var me = document.getElementsByClassName('weui-tabbar__item')
-            me[index].click();
+            var me = document.getElementsByClassName('weui-tabbar__item');
+            console.log(11111);
+            setTimeout(()=>{
+              me[index].click();
+            },100)
           },
-          isLogin(){
-              var userName = localStorage.getItem('userName');
-              console.log(userName);
-              if(userName == null){
-                alert('先登录');
-                this.$router.push({path:'/index'})
-              }
-          }
+
+
         }
     }
 </script>
 
 <!-- Add "scoped" attribute to limit CSS to this component only -->
 <style scoped lang="less">
+  #center{
+    height:100%;
 
+  }
 </style>
