@@ -34,7 +34,7 @@
       width:85%;
       padding:1.8rem 1rem;
       position: absolute;
-      top:260px;
+      top:35%;
       left:28px;
       background: #FFF;
       text-align: center;
@@ -48,7 +48,7 @@
         border-radius: .2rem;
         color: #fff;
         margin: .4rem;
-        padding: 0.4rem 7.0rem;
+        padding: 0.4rem 6.0rem;
       }
     }
   }

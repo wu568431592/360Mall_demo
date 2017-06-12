@@ -5,7 +5,7 @@
         <div class="search-box" @click="showsearchmain">
           <input type="text" placeholder="N5S">
         </div>
-        <Swiper loop auto :list="demo06_list" height="250px" dots-position="center"></Swiper>
+        <Swiper class="diy_swiper" loop  :list="demo06_list" height="13 rem"  dots-position="center" ></Swiper>
         <div class="padding-sm topic">
           <div class="img_box"><img src="../assets/images/360pic.png"></div>
           <div class="Marquee_box">
@@ -253,7 +253,7 @@
     .diy-grid{
       a{
         color:#666;
-        padding:1rem 0.4rem;
+        padding:1rem 0.02rem;
         div{
           width:2.5rem;
           height:2.5rem;
@@ -262,7 +262,7 @@
           text-align: center;
           border:1px solid #aaa;
           border-radius:2.5rem;
-          font-size:90%;
+          font-size:75%;
         }
         h4{
           text-align: center;

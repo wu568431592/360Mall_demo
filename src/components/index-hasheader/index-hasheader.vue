@@ -72,20 +72,20 @@
       border-right:1px solid #F1F1F1;
       border-bottom:1px solid #F1F1F1;
       text-align: center;
-      padding:1rem 0.2rem;
+      padding:1rem 0.1rem;
       .pro_header{
         display: inline-block;
-        padding:0.2rem 0.3rem;
+        padding:0.1rem 0.3rem;
         margin:0 auto;
         border: 1px solid #E1E1E1;
         border-radius:1.3rem;
         img{
           width:1.3rem;
           height:1.3rem;
-          margin-right:0.5rem;
+          margin-right:0.2rem;
         }
         span{
-          font-size:85%;
+          font-size:75%;
           color:#222;
         }
       }

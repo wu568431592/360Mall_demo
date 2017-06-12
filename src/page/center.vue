@@ -24,7 +24,6 @@
         methods:{
           changeTarBar(index){
             var me = document.getElementsByClassName('weui-tabbar__item');
-            console.log(11111);
             setTimeout(()=>{
               me[index].click();
             },100)

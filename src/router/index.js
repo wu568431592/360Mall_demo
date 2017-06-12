@@ -4,6 +4,9 @@ import index from '../page/index.vue'
 import allproduct from '../page/allproduct.vue'
 import cart from '../page/cart.vue'
 import center from '../page/center.vue'
+import login from '../page/login.vue'
+import register from '../page/register.vue'
+import phoneLogin from '../page/phoneLogin.vue'
 Vue.use(Router);
 
 export default new Router({
@@ -29,6 +32,18 @@ export default new Router({
     {
       path: '/center',
       component: center
+    },
+    {
+      path: '/login',
+      component: login
+    },
+    {
+      path: '/register',
+      component: register
+    },
+    {
+      path: '/phoneLogin',
+      component: phoneLogin
     },
   ]
 })

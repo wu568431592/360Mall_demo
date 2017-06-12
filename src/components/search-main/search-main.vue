@@ -80,7 +80,7 @@
       }
       .header-center{
         height:100%;
-        width:75%;
+        width:73%;
         padding:0.5rem 0;
         input{
           height:100%;
@@ -92,8 +92,9 @@
       }
       .header-right{
         height:100%;
-        width:15%;
-        font-size:90%;
+        line-height:normal;
+        width:17%;
+        font-size:80%;
         padding:0.9rem 0.1rem 0.5rem 1rem;
       }
     }
