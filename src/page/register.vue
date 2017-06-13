@@ -6,14 +6,14 @@
           <li class="account_box">
             <i class="left_item account"></i>
             <div class="right_item border-bottom">
-              <input type="text" name="account" placeholder="请输入手机号" v-model="userPhoneNum" @blur="checkPhoneNum">
+              <input type="text" name="account" placeholder="请输入手机号" v-model="userPhoneNum" @blur="checkEmpty">
             </div>
           </li>
           <li class="yanzhengma_box">
             <i class="left_item yanzhengma_bg"></i>
             <div class="right_item  border-bottom">
-              <input type="text" name="yanzhengma" placeholder="请输入校验码" v-model="userYanZhengMa">
-              <div class="yanzhengma">
+              <input type="text" name="yanzhengma" placeholder="请输入校验码" v-model="userYanZhengMa" @blur="checkEmpty">
+              <div class="yanzhengma" @click="getYanZhengMa">
                 <span>获取校验码</span>
               </div>
             </div>
@@ -21,37 +21,41 @@
           <li class="password_box">
             <i class="left_item password"></i>
             <div class="right_item">
-              <input type="password" name="password" placeholder="请输入密码" v-model="userPassword">
+              <input type="password" name="password" placeholder="请输入密码" v-model="userPassword" @blur="checkEmpty">
             </div>
           </li>
         </ul>
       </div>
       <div class="radio_box">
-        <input type="checkbox" id="fuwutiaokuan" checked>
+        <input type="checkbox" id="fuwutiaokuan" v-model="userFuwu" @change="checkEmpty">
         <label for="fuwutiaokuan">
-          我已经阅读并同意<a href="#">360用户服务条款</a></label>
+          我已经阅读并同意<a href="#">360用户服务条款</a>
+        </label>
       </div>
       <div class="button_box">
-        <button>注册</button>
+        <button id="submit" @click="registerNow" disabled>注册</button>
       </div>
       <div class="other">
         <p class="text-align-center" @click="toLogin">已有360账号</p>
       </div>
       <toast v-model="show1" type="text" position="bottom" width="15rem">{{toastHtml}}</toast>
+      <alert v-model="show" title="恭喜您" @on-hide="onHide">注册成功！</alert>
     </div>
 </template>
 
 <script>
     import loginHeader from '../components/login-header/login-header.vue'
-    import { Toast } from 'vux'
+    import { Toast,Alert } from 'vux'
     export default {
         name:'register',
-        components:{ loginHeader,Toast },
+        components:{ loginHeader,Toast,Alert   },
         data(){
           return {
             userPhoneNum:'',
             userYanZhengMa:'',
             userPassword:'',
+            userFuwu:true,
+            show:false,
             show1:false,
             toastHtml:''
           }
@@ -60,13 +64,43 @@
           toLogin:function(){
               this.$router.push({path:'/login'})
           },
-          checkPhoneNum:function(){
+          getYanZhengMa:function(){
+            this.toastHtml = '验证码已经发送至您的手机！';
+            this.show1 = true;
+            this.userYanZhengMa = Math.floor(Math.random()*9000)+1000;
+          },
+          checkEmpty:function(){
+            if((this.userPhoneNum != '')&&(this.userYanZhengMa != '')&&(this.userPassword != '')&&(this.userFuwu)){
+              document.getElementById('submit').removeAttribute('disabled');
+              document.getElementById('submit').setAttribute('class','canUse');
+            }else{
+              document.getElementById('submit').removeAttribute('class');
+              document.getElementById('submit').setAttribute('disabled',true)
+            }
+          },
+          registerNow:function(){
             if(!(/^1[34578]\d{9}$/.test(this.userPhoneNum))){
               this.toastHtml = '请输入正确的手机号';
               this.show1 = true;
+              return
             }
-          }
-        }
+            if(!(/^[a-zA-Z0-9]{6,18}$/.test(this.userPassword))){
+              this.toastHtml = ' 密码必须且只含有数字和字母，6-18位 ';
+              this.show1 = true;
+              return
+            }
+            this.show = true;
+            var user = {
+                'userPhoneNum': this.userPhoneNum,
+                'userPassword': this.userPassword
+            }
+            this.$store.state.userList.push(user);
+            //console.log(this.$store.state.userList);
+          },
+          onHide(){
+            this.$router.push({path:'/login'})
+          },
+      }
     }
 </script>
 
@@ -155,12 +189,17 @@
         border-radius: 5px;
         font-size:100%;
       }
+      button.canUse{
+        background: #34756C;
+      }
     }
     .other{
       padding:0.4rem;
       p{
         color:#34756c;
         font-size:80%;
+        width:30%;
+        margin:0 auto;
       }
     }
     .radio_box{

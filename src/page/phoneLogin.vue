@@ -262,6 +262,9 @@
       border-radius: 5px;
       font-size:100%;
     }
+    button.canUse{
+      background: #34756C;
+    }
   }
   .other{
     padding:0.4rem 1.2rem;

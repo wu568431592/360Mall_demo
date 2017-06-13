@@ -9,7 +9,10 @@ var state;
 state ={
   serverIP : '192.168.78.65',
   isBarshow: true,
-  userList:[],
+  userList:[
+    {"userPhoneNum":'17310161773',"userPassword":'123123'},
+    {"userPhoneNum":'17610011773',"userPassword":'123123'}
+  ],
 }
 
 const mutations ={
