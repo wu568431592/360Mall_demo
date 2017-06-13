@@ -19,7 +19,7 @@
           this.changeTarBar(3);
         },
         beforeMount:function(){
-
+          this.$store.state.isBarshow = true
         },
         methods:{
           changeTarBar(index){
