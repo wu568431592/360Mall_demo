@@ -38,10 +38,8 @@
       methods:{
         toCart(){
           if(this.isLogin()){
-              console.log(11)
             this.$router.push({path:'/cart'})
           }else{
-            console.log(1221)
             this.$parent.showAlert = true;
           }
         },
