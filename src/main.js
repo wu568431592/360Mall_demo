@@ -25,6 +25,8 @@ router.afterEach(function (to) {
   }
   store.commit('updateLoadingStatus', {isLoading: false})
 })
+import { ToastPlugin } from 'vux'
+Vue.use(ToastPlugin)
 
 /* eslint-disable no-new */
 var vm = new Vue({

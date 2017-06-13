@@ -9,6 +9,7 @@ var state;
 state ={
   serverIP : '192.168.78.65',
   isBarshow: true,
+  userList:[],
 }
 
 const mutations ={

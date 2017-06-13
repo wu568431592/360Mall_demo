@@ -6,13 +6,13 @@
           <li class="account_box">
             <i class="left_item account"></i>
             <div class="right_item border-bottom">
-              <input type="text" name="account" placeholder="请输入手机号">
+              <input type="text" name="account" placeholder="请输入手机号" v-model="userPhoneNum" @blur="checkPhoneNum">
             </div>
           </li>
           <li class="yanzhengma_box">
             <i class="left_item yanzhengma_bg"></i>
             <div class="right_item  border-bottom">
-              <input type="text" name="yanzhengma" placeholder="请输入校验码">
+              <input type="text" name="yanzhengma" placeholder="请输入校验码" v-model="userYanZhengMa">
               <div class="yanzhengma">
                 <span>获取校验码</span>
               </div>
@@ -21,10 +21,9 @@
           <li class="password_box">
             <i class="left_item password"></i>
             <div class="right_item">
-              <input type="password" name="password" placeholder="请输入密码">
+              <input type="password" name="password" placeholder="请输入密码" v-model="userPassword">
             </div>
           </li>
-
         </ul>
       </div>
       <div class="radio_box">
@@ -38,22 +37,34 @@
       <div class="other">
         <p class="text-align-center" @click="toLogin">已有360账号</p>
       </div>
+      <toast v-model="show1" type="text" position="bottom" width="15rem">{{toastHtml}}</toast>
     </div>
 </template>
 
 <script>
     import loginHeader from '../components/login-header/login-header.vue'
+    import { Toast } from 'vux'
     export default {
         name:'register',
-        components:{ loginHeader },
+        components:{ loginHeader,Toast },
         data(){
           return {
-
+            userPhoneNum:'',
+            userYanZhengMa:'',
+            userPassword:'',
+            show1:false,
+            toastHtml:''
           }
         },
         methods:{
           toLogin:function(){
               this.$router.push({path:'/login'})
+          },
+          checkPhoneNum:function(){
+            if(!(/^1[34578]\d{9}$/.test(this.userPhoneNum))){
+              this.toastHtml = '请输入正确的手机号';
+              this.show1 = true;
+            }
           }
         }
     }

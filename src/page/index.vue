@@ -5,7 +5,7 @@
         <div class="search-box" @click="showsearchmain">
           <input type="text" placeholder="N5S">
         </div>
-        <Swiper class="diy_swiper" loop  :list="demo06_list" height="13rem"  dots-position="center" ></Swiper>
+        <Swiper class="diy_swiper" loop auto  :list="demo06_list" height="13rem"  dots-position="center" ></Swiper>
         <div class="padding-sm topic">
           <div class="img_box"><img src="../assets/images/360pic.png"></div>
           <div class="Marquee_box">
