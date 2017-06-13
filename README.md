@@ -34,3 +34,6 @@ For detailed explanation on how things work, checkout the [guide](http://vuejs-t
 ## 设置服务器IP
 将项目文件中 src/store/index.js 中 state的 serverIP 修改为本机IP地址即可。
 
+##账号注册
+目前账号注册只支持手机号。手机短信注册功能未进行实现！
+
