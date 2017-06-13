@@ -118,6 +118,7 @@
       border-bottom:2px solid  #e4e4e4;
     li{
       display: flex;
+      background:#fff;
       .left_item{
         width:24px;
         height:24px;

@@ -76,6 +76,7 @@
         border-bottom:2px solid  #e4e4e4;
         li{
           display: flex;
+          background:#fff;
           .left_item{
             width:24px;
             height:23px;
@@ -92,6 +93,7 @@
           }
           .right_item{
             width:100%;
+
             input{
               width:100%;
               border:none;
