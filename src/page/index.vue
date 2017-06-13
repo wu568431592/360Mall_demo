@@ -79,8 +79,7 @@
           <p><em>客服热线：</em><span><i><a href="tel:400-6822-360">400-6822-360</a> 周一到周日 9:00-18:00</i><i><a href="tel:400-0111-366">400-0111-366</a> (手机类产品)</i><i>周一至周日 8:00-22:00（仅收市话费）</i></span></p>
           <p class="copyright">360商城©2013-2016 版权所有</p>
         </div>
-        <Metabbar></Metabbar>
-        <alert v-show="showAlert"></alert>
+        <!--<Metabbar class="diy-metabbar"></Metabbar>-->
     </div>
 </template>
 
@@ -114,6 +113,9 @@
                 showAlert:false
             }
         },
+        beforeMount:function(){
+          this.$store.state.isBarshow = true
+        },
         methods:{
             showsearchmain:function(){
                 this.showSearch = true;
@@ -134,9 +136,6 @@
                 me[index].click();
               },100)
             }
-        },
-        beforeMount:function(){
-
         },
         mounted:function(){
             this.demo06_list = [{
@@ -305,6 +304,11 @@
         font-size: 85%;
         text-align: center;
       }
+    }
+    .diy-metabbar{
+      position:fixed;
+      bottom:0;
+      width:100%;
     }
   }
 </style>

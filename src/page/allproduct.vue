@@ -1,21 +1,22 @@
 <template>
     <div id="allproduct">
       allproduct
-      <Metabbar></Metabbar>
-      <alert v-show="showAlert"></alert>
+      <!--<Metabbar></Metabbar>-->
     </div>
 </template>
 
 <script>
     import Metabbar from '../components/Metabbar/Metabbar.vue'
-    import alert from '../components/alert/alert.vue'
     export default {
         name:'allproduct',
-        components:{Metabbar,alert},
+        components:{Metabbar},
         data(){
           return {
             showAlert : false
           }
+        },
+        beforeMount:function(){
+          this.$store.state.isBarshow = true
         },
         mounted:function(){
           this.changeTarBar(1)

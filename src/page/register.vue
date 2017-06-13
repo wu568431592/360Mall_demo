@@ -6,13 +6,13 @@
           <li class="account_box">
             <i class="left_item account"></i>
             <div class="right_item border-bottom">
-              <input type="text" name="account" placeholder="请输入手机号" v-model="userPhoneNum" @blur="checkEmpty">
+              <input type="text" name="account" placeholder="请输入手机号" v-model="userPhoneNum" @change="checkEmpty">
             </div>
           </li>
           <li class="yanzhengma_box">
             <i class="left_item yanzhengma_bg"></i>
             <div class="right_item  border-bottom">
-              <input type="text" name="yanzhengma" placeholder="请输入校验码" v-model="userYanZhengMa" @blur="checkEmpty">
+              <input type="text" name="yanzhengma" placeholder="请输入校验码" v-model="userYanZhengMa" @change="checkEmpty">
               <div class="yanzhengma" @click="getYanZhengMa">
                 <span>获取校验码</span>
               </div>
@@ -21,7 +21,7 @@
           <li class="password_box">
             <i class="left_item password"></i>
             <div class="right_item">
-              <input type="password" name="password" placeholder="请输入密码" v-model="userPassword" @blur="checkEmpty">
+              <input type="password" name="password" placeholder="请输入密码" v-model="userPassword" @change="checkEmpty">
             </div>
           </li>
         </ul>
@@ -59,6 +59,9 @@
             show1:false,
             toastHtml:''
           }
+        },
+        beforeMount:function(){
+          this.$store.state.isBarshow = false
         },
         methods:{
           toLogin:function(){
@@ -121,9 +124,10 @@
             width:24px;
             height:23px;
             margin:11px;
-            background: url(../assets/images/new_wap.png) no-repeat;
+            background: #fff url(../assets/images/new_wap.png) no-repeat;
             background-position: -19px 0;
             background-size: 138px 26px;
+
           }
           .left_item.password{
             background-position: 1px 0;
@@ -133,6 +137,7 @@
           }
           .right_item{
             width:100%;
+            background:#fff;
             input{
               width:100%;
               border:none;
@@ -154,6 +159,7 @@
       }
       li.yanzhengma_box{
         position:relative;
+        z-index:100000000000000;
         input{
           width:70%;
         }
@@ -161,6 +167,7 @@
           position: absolute;
           top:0;
           height:28px;
+          z-index:100000000000000;
           line-height:28px;
           border:1px solid  #34756c;
           right: 15px;

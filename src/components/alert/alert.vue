@@ -14,6 +14,7 @@
         name:'alert',
         methods:{
           goLogin:function(){
+            this.$parent.showAlert = false;
             this.$router.push({path:'/login'})
           }
         }

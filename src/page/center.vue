@@ -1,6 +1,6 @@
 <template>
     <div id="center">
-      <Metabbar></Metabbar>
+      <!--<Metabbar></Metabbar>-->
     </div>
 </template>
 

@@ -80,6 +80,9 @@
               isShowList:false,
             }
         },
+        beforeMount:function(){
+          this.$store.state.isBarshow = false
+        },
         components:{
           loginHeader,
         },
