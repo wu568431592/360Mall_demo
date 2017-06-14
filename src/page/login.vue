@@ -203,7 +203,8 @@
       }
     }
     .other{
-      padding:0.4rem;
+      padding:0.4rem 1rem;
+      overflow:hidden;
       p{
         color:#34756c;
       }
