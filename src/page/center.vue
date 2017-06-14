@@ -77,7 +77,7 @@
           <em class="user_icon menu_item_jiantou"></em>
         </a>
       </div>
-      <div class="signOut">
+      <div class="signOut" @click="signOut">
         退出登录
       </div>
     </div>
@@ -107,8 +107,10 @@
               me[index].click();
             },100)
           },
-
-
+          signOut(){
+              localStorage.removeItem('userName');
+              this.$router.push({path:'/index'});
+          }
         }
     }
 </script>
