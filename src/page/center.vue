@@ -5,21 +5,21 @@
         <img src="../assets/images/570ef05dNc02e5acf.jpg" alt="">
         <p>我的名字</p>
         <div class="pro_type_warp">
-          <div class="pro_type_warp_item">
+          <div class="pro_type_warp_item" @click="toOrderList(1)">
             <div class="pro_type_warp_img_box">
               <div class="pro_type_warp_img"></div>
               <div class="red_dd"></div>
             </div>
             <p>代付款</p>
           </div>
-          <div class="pro_type_warp_item">
+          <div class="pro_type_warp_item" @click="toOrderList(2)">
             <div class="pro_type_warp_img_box">
               <div class="pro_type_warp_img"></div>
               <div class="red_dd"></div>
             </div>
             <p>待收货</p>
           </div>
-          <div class="pro_type_warp_item">
+          <div class="pro_type_warp_item" @click="toOrderList(3)">
             <div class="pro_type_warp_img_box">
               <div class="pro_type_warp_img"></div>
               <div class="red_dd"></div>
@@ -29,9 +29,9 @@
         </div>
       </div>
       <div class="menu_item_wrap first">
-        <a class="menu_item">
+        <a class="menu_item" @click="toOrderList(0)">
           <em class="user_icon menu_item_icon menu_item_icon_order"></em>
-          我的订单
+            我的订单
           <em class="user_icon menu_item_jiantou"></em>
         </a>
         <a class="menu_item">
@@ -86,6 +86,7 @@
 <script>
     import alert from '../components/alert/alert.vue'
     import blackHeader from '../components/black-header/black-header.vue'
+    import { mapMutations } from 'vuex'
     export default {
         name:'center',
         components:{ alert,blackHeader },
@@ -101,6 +102,9 @@
           this.$store.state.isBarshow = true
         },
         methods:{
+          ...mapMutations([
+              'go'
+          ]),
           changeTarBar(index){
             var me = document.getElementsByClassName('weui-tabbar__item');
             setTimeout(()=>{
@@ -110,6 +114,9 @@
           signOut(){
               localStorage.removeItem('userName');
               this.$router.push({path:'/index'});
+          },
+          toOrderList(id){
+            this.$router.push({path:'/orderList/'+id});
           }
         }
     }

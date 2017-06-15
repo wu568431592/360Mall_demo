@@ -7,6 +7,7 @@ import center from '../page/center.vue'
 import login from '../page/login.vue'
 import register from '../page/register.vue'
 import phoneLogin from '../page/phoneLogin.vue'
+import orderList from '../page/orderList.vue'
 Vue.use(Router);
 
 export default new Router({
@@ -44,6 +45,10 @@ export default new Router({
     {
       path: '/phoneLogin',
       component: phoneLogin
+    },
+    {
+      path: '/orderList/:id',
+      component: orderList
     },
   ]
 })

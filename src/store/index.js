@@ -16,7 +16,9 @@ state ={
 }
 
 const mutations ={
-
+  go:function(state,options){
+    options[0].push({path:'/'+options[1]});
+  }
 }
 const getters = {
   getSearchDetails:function(){

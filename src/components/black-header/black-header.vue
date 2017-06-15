@@ -1,7 +1,7 @@
 <template>
     <div id="black-header">
       <div class="header_box">
-        <div class="go_back_box">
+        <div class="go_back_box" @click="goBack">
 
         </div>
         <div class="header_name">{{word}}</div>
@@ -47,6 +47,9 @@
         methods:{
           show_bottom:function(){
             this.isbottomshow = !this.isbottomshow
+          },
+          goBack(){
+              window.history.go(-1)
           }
         }
     }
@@ -72,9 +75,12 @@
         float:right
       }
       div.go_back_box{
+        position:absolute;
+        top:8px;
+        left:7px;
+        z-index: 10000;
         width:25px;
         height:25px;
-        margin-top:6px;
         background: url(../../assets/images/t014c7a9a806382db2a.png) no-repeat center;
         background-size: 40%;
       }
@@ -91,7 +97,6 @@
       }
       .header_do{
         font-size:90%;
-
       }
       .bread_box{
         position:absolute;
@@ -112,6 +117,7 @@
       overflow: hidden;
       padding:0.2rem 0.4rem;
       border-bottom: 0.5px solid #bbb;
+      background:#fff;
       div.header_bottom_item{
         float:left;
         width:33%;
