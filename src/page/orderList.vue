@@ -23,6 +23,9 @@
     export default {
       name:'orderList',
       components:{blackHeader},
+      beforeMount:function(){
+        this.$store.state.isBarshow = false
+      },
       mounted:function(){
         var showID = parseInt(this.$route.params.id);
         var proTypeList = document.getElementsByClassName('order_type');
@@ -48,7 +51,10 @@
 </script>
 
 <!-- Add "scoped" attribute to limit CSS to this component only -->
-<style scoped lang="less">
+<style lang="less">
+  #vux_view_box_body{
+    background:#EEEEEE;
+  }
   #orderList{
     background:#EEEEEE;
     height:100%;

@@ -160,6 +160,7 @@
 <style scoped lang="less">
   @import "../assets/css/variables.less";
   #index{
+    background:#fff;
     .gotop{
       width:3rem;
       height:3rem;
