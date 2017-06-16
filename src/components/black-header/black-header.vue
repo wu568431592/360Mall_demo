@@ -1,16 +1,14 @@
 <template>
     <div id="black-header">
       <div class="header_box">
-        <div class="go_back_box" @click="goBack">
-
-        </div>
+        <div class="go_back_box" @click="goBack"></div>
         <div class="header_name">{{word}}</div>
         <div class="bread_box" @click="show_bottom">
           <svg viewBox="0 0 30 21">
             <path d="M0,0v3h30V0H0z M0,12h30V9H0V12z M0,21h30v-3H0V21z"></path>
           </svg>
         </div>
-        <div class="header_do" v-show="isshowHeader_do">编辑</div>
+        <div class="header_do" v-if="isshowHeader_do" @click="showDelete($event)">编辑</div>
       </div>
       <div class="header_bottom" v-show="isbottomshow">
         <div class="header_bottom_item">
@@ -50,6 +48,14 @@
           },
           goBack(){
               window.history.go(-1)
+          },
+          showDelete(e){
+            if(e.target.innerHTML == '完成'){
+              e.target.innerHTML = '编辑'
+            }else{
+              e.target.innerHTML = '完成'
+            }
+            this.$parent.showMe = !this.$parent.showMe;
           }
         }
     }
@@ -97,6 +103,10 @@
       }
       .header_do{
         font-size:90%;
+        position:absolute;
+        top:3px;
+        right:37px;
+        z-index: 10000;
       }
       .bread_box{
         position:absolute;

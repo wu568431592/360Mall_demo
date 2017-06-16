@@ -1,7 +1,6 @@
 <template>
     <div id="allproduct">
       allproduct
-      <!--<Metabbar></Metabbar>-->
     </div>
 </template>
 
