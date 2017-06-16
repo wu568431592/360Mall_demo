@@ -11,13 +11,13 @@
         <div class="header_do" v-if="isshowHeader_do" @click="showDelete($event)">编辑</div>
       </div>
       <div class="header_bottom" v-show="isbottomshow">
-        <div class="header_bottom_item">
+        <div class="header_bottom_item" @click="go([$router,'index'])">
           首页
         </div>
-        <div class="header_bottom_item">
+        <div class="header_bottom_item" @click="go([$router,'cart'])">
           购物车
         </div>
-        <div class="header_bottom_item">
+        <div class="header_bottom_item" @click="go([$router,'orderList/0'])">
           我的订单
         </div>
       </div>
@@ -26,6 +26,7 @@
 </template>
 
 <script>
+    import {mapMutations} from 'vuex'
     export default {
         name:'black-header',
         data(){
@@ -43,6 +44,9 @@
           }
         },
         methods:{
+          ...mapMutations([
+              'go'
+          ]),
           show_bottom:function(){
             this.isbottomshow = !this.isbottomshow
           },
