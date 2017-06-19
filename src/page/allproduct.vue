@@ -25,7 +25,60 @@
         </div>
         <div class="main_box">
           <ul>
-
+            <!--<li>-->
+              <!--<div class="img_box">-->
+                <!--<img src="../assets/images/571f36f6N1f0791f5.jpg" alt="">-->
+              <!--</div>-->
+              <!--<div class="instr">-->
+                <!--<h5>色相头摄像头摄像头色相头</h5>-->
+                <!--<span>￥399.00</span>-->
+              <!--</div>-->
+            <!--</li>-->
+            <!--<li>-->
+              <!--<div class="img_box">-->
+                <!--<img src="../assets/images/571f36f6N1f0791f5.jpg" alt="">-->
+              <!--</div>-->
+              <!--<div class="instr">-->
+                <!--<h5>色相头摄像头摄像头色相头</h5>-->
+                <!--<span>￥399.00</span>-->
+              <!--</div>-->
+            <!--</li>-->
+            <!--<li>-->
+              <!--<div class="img_box">-->
+                <!--<img src="../assets/images/571f36f6N1f0791f5.jpg" alt="">-->
+              <!--</div>-->
+              <!--<div class="instr">-->
+                <!--<h5>色相头摄像头摄像头色相头</h5>-->
+                <!--<span>￥399.00</span>-->
+              <!--</div>-->
+            <!--</li>-->
+            <!--<li>-->
+              <!--<div class="img_box">-->
+                <!--<img src="../assets/images/571f36f6N1f0791f5.jpg" alt="">-->
+              <!--</div>-->
+              <!--<div class="instr">-->
+                <!--<h5>色相头摄像头摄像头色相头</h5>-->
+                <!--<span>￥399.00</span>-->
+              <!--</div>-->
+            <!--</li>-->
+            <!--<li>-->
+              <!--<div class="img_box">-->
+                <!--<img src="../assets/images/571f36f6N1f0791f5.jpg" alt="">-->
+              <!--</div>-->
+              <!--<div class="instr">-->
+                <!--<h5>色相头摄像头摄像头色相头</h5>-->
+                <!--<span>￥399.00</span>-->
+              <!--</div>-->
+            <!--</li>-->
+            <!--<li>-->
+              <!--<div class="img_box">-->
+                <!--<img src="../assets/images/571f36f6N1f0791f5.jpg" alt="">-->
+              <!--</div>-->
+              <!--<div class="instr">-->
+                <!--<h5>色相头摄像头摄像头色相头</h5>-->
+                <!--<span>￥399.00</span>-->
+              <!--</div>-->
+            <!--</li>-->
           </ul>
         </div>
       </div>
@@ -62,6 +115,24 @@
                   list[i].setAttribute('class','left_title');
               }
               me.setAttribute('class','left_title active');
+              var name = me.innerHTML;
+              var html = [];
+              var url = 'http://'+this.$store.state.serverIP+'/images/57df55ecN32dfbf6e.jpg';
+              console.log(url)
+              document.getElementsByClassName('main_box')[0].childNodes[0].innerHTML = '';
+              for(var j= 0 ;j<5; j++){
+                document.getElementsByClassName('main_box')[0].childNodes[0].innerHTML += `
+                <li>
+                  <div class="img_box">
+                    <img src= "${url}" alt="">
+                  </div>
+                  <div class="instr">
+                    <h5>${name}${j}</h5>
+                    <span>￥399.00</span>
+                  </div>
+                </li>`
+              }
+
           },
           changeSort(e){
               var me = e.target;
@@ -155,6 +226,39 @@
         }
         li:last-child{
           width:40%;
+        }
+      }
+      .main_box{
+        height: 420px;
+        overflow:scroll;
+      }
+      .main_box ul{
+        li{
+          border-bottom:1px solid #ddd;
+          padding:10px 0;
+          margin-left:15px;
+          overflow:hidden;
+          .img_box{
+            width:96px;
+            height:96px;
+            float:left;
+            img{
+              width:100%;
+            }
+          }
+          .instr{
+            h5{
+              height:50px;
+              font-size:80%;
+              overflow: hidden;
+              text-overflow: ellipsis;
+              margin-bottom:10px;
+            }
+            span{
+              font-size:80%;
+              color:#e4393c;
+            }
+          }
         }
       }
     }
