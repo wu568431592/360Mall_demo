@@ -83,6 +83,7 @@
 <!-- Add "scoped" attribute to limit CSS to this component only -->
 <style lang="less">
 #productInfo{
+    background:#F5F5F5;
   .vux-slider > .vux-swiper > .vux-swiper-item > a > .vux-swiper-desc{
     display:none;
   }
@@ -123,12 +124,15 @@
   }
   .silder_box{
     padding:10px 0px;
+    background:#FFF;
     border-bottom: 1px solid #E5E5E5;
   }
   .proInfo{
-    padding:10px;
     font-size:80%;
+    padding-bottom:10px;
     .like_button{
+      background:#FFF;
+      padding:10px;
       float: right;
       text-align: right;
       font-size: 1.2rem;
@@ -147,11 +151,14 @@
       }
     }
     .info-title{
+      padding:5px 10px;
+      background:#FFF;
       color: #333;
       line-height: 1.5rem;
-      margin-bottom: .5rem;
     }
     .info-feihua{
+      padding:3px 10px;
+      background:#FFF;
       color: #ff5a00;
       font-size: 75%;
       display: block;
@@ -163,6 +170,8 @@
       }
     }
     .info-price{
+      padding:3px 10px;
+      background:#FFF;
       color: #F6382C;
       line-height: 2.0rem;
     }
