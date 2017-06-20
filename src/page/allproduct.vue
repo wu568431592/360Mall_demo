@@ -25,61 +25,65 @@
         </div>
         <div class="main_box">
           <ul>
-            <!--<li>-->
-              <!--<div class="img_box">-->
-                <!--<img src="../assets/images/571f36f6N1f0791f5.jpg" alt="">-->
-              <!--</div>-->
-              <!--<div class="instr">-->
-                <!--<h5>色相头摄像头摄像头色相头</h5>-->
-                <!--<span>￥399.00</span>-->
-              <!--</div>-->
-            <!--</li>-->
-            <!--<li>-->
-              <!--<div class="img_box">-->
-                <!--<img src="../assets/images/571f36f6N1f0791f5.jpg" alt="">-->
-              <!--</div>-->
-              <!--<div class="instr">-->
-                <!--<h5>色相头摄像头摄像头色相头</h5>-->
-                <!--<span>￥399.00</span>-->
-              <!--</div>-->
-            <!--</li>-->
-            <!--<li>-->
-              <!--<div class="img_box">-->
-                <!--<img src="../assets/images/571f36f6N1f0791f5.jpg" alt="">-->
-              <!--</div>-->
-              <!--<div class="instr">-->
-                <!--<h5>色相头摄像头摄像头色相头</h5>-->
-                <!--<span>￥399.00</span>-->
-              <!--</div>-->
-            <!--</li>-->
-            <!--<li>-->
-              <!--<div class="img_box">-->
-                <!--<img src="../assets/images/571f36f6N1f0791f5.jpg" alt="">-->
-              <!--</div>-->
-              <!--<div class="instr">-->
-                <!--<h5>色相头摄像头摄像头色相头</h5>-->
-                <!--<span>￥399.00</span>-->
-              <!--</div>-->
-            <!--</li>-->
-            <!--<li>-->
-              <!--<div class="img_box">-->
-                <!--<img src="../assets/images/571f36f6N1f0791f5.jpg" alt="">-->
-              <!--</div>-->
-              <!--<div class="instr">-->
-                <!--<h5>色相头摄像头摄像头色相头</h5>-->
-                <!--<span>￥399.00</span>-->
-              <!--</div>-->
-            <!--</li>-->
-            <!--<li>-->
-              <!--<div class="img_box">-->
-                <!--<img src="../assets/images/571f36f6N1f0791f5.jpg" alt="">-->
-              <!--</div>-->
-              <!--<div class="instr">-->
-                <!--<h5>色相头摄像头摄像头色相头</h5>-->
-                <!--<span>￥399.00</span>-->
-              <!--</div>-->
-            <!--</li>-->
+            <li>
+              <a href="/productInfo">
+                <div class="img_box">
+                  <img src="../assets/images/571f36f6N1f0791f5.jpg" alt="">
+                </div>
+                <div class="instr">
+                  <h5 class="proName">色相头摄像头摄像头色相头</h5>
+                  <span>￥399.00</span>
+                </div>
+              </a>
+            </li>
+            <li>
+              <a href="/productInfo">
+                <div class="img_box">
+                  <img src="../assets/images/571f36f6N1f0791f5.jpg" alt="">
+                </div>
+                <div class="instr">
+                  <h5 class="proName">色相头摄像头摄像头色相头</h5>
+                  <span>￥399.00</span>
+                </div>
+              </a>
+            </li>
+            <li>
+              <a href="/productInfo">
+                <div class="img_box">
+                  <img src="../assets/images/571f36f6N1f0791f5.jpg" alt="">
+                </div>
+                <div class="instr">
+                  <h5 class="proName">色相头摄像头摄像头色相头</h5>
+                  <span>￥399.00</span>
+                </div>
+              </a>
+            </li>
+            <li>
+              <a href="/productInfo">
+                <div class="img_box">
+                  <img src="../assets/images/571f36f6N1f0791f5.jpg" alt="">
+                </div>
+                <div class="instr">
+                  <h5 class="proName">色相头摄像头摄像头色相头</h5>
+                  <span>￥399.00</span>
+                </div>
+              </a>
+            </li>
+            <li>
+              <a href="/productInfo">
+                <div class="img_box">
+                  <img src="../assets/images/571f36f6N1f0791f5.jpg" alt="">
+                </div>
+                <div class="instr">
+                  <h5 class="proName">色相头摄像头摄像头色相头</h5>
+                  <span>￥399.00</span>
+                </div>
+              </a>
+            </li>
           </ul>
+          <div class="button_box">
+              <button @click="loadMore">点击查看更多</button>
+          </div>
         </div>
       </div>
     </div>
@@ -116,23 +120,22 @@
               }
               me.setAttribute('class','left_title active');
               var name = me.innerHTML;
-              var html = [];
               var url = 'http://'+this.$store.state.serverIP+'/images/57df55ecN32dfbf6e.jpg';
-              console.log(url)
               document.getElementsByClassName('main_box')[0].childNodes[0].innerHTML = '';
               for(var j= 0 ;j<5; j++){
                 document.getElementsByClassName('main_box')[0].childNodes[0].innerHTML += `
                 <li>
-                  <div class="img_box">
-                    <img src= "${url}" alt="">
-                  </div>
-                  <div class="instr">
-                    <h5>${name}${j}</h5>
-                    <span>￥399.00</span>
-                  </div>
+                  <a href="/productInfo">
+                    <div class="img_box">
+                      <img src= "${url}" alt="">
+                    </div>
+                    <div class="instr">
+                      <h5 class="proName">${name}${j}</h5>
+                      <span>￥399.00</span>
+                    </div>
+                  </a>
                 </li>`
               }
-
           },
           changeSort(e){
               var me = e.target;
@@ -150,13 +153,31 @@
                 }
                 me.setAttribute('class','sortItem green');
               }
+          },
+          loadMore(){
+            var name = document.getElementsByClassName('proName')[0].innerHTML;
+            var url = 'http://'+this.$store.state.serverIP+'/images/57df55ecN32dfbf6e.jpg';
+            for(var j= 0 ;j<5; j++){
+              document.getElementsByClassName('main_box')[0].childNodes[0].innerHTML += `
+                <li>
+                  <a href="/productInfo">
+                    <div class="img_box">
+                      <img src= "${url}" alt="">
+                    </div>
+                    <div class="instr">
+                      <h5>${name}${j}</h5>
+                      <span>￥399.00</span>
+                    </div>
+                  </a>
+                </li>`
+            }
           }
         }
     }
 </script>
 
 <!-- Add "scoped" attribute to limit CSS to this component only -->
-<style scoped lang="less">
+<style  lang="less">
   #allproduct{
     background:#fff;
     height:100%;
@@ -253,12 +274,28 @@
               overflow: hidden;
               text-overflow: ellipsis;
               margin-bottom:10px;
+              color:#333;
             }
             span{
               font-size:80%;
               color:#e4393c;
             }
           }
+        }
+      }
+      .main_box div.button_box{
+        padding:20px 30px;
+        width:100%;
+        text-align: center;
+        button{
+          border:1px solid #ccc;
+          background: #fff;
+          color:#666666;
+          width:100%;
+          height:30px;
+          -webkit-border-radius:5px;
+          -moz-border-radius:5px;
+          border-radius:5px;
         }
       }
     }
