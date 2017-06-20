@@ -75,9 +75,7 @@
           blackHeader,XNumber
         },
         beforeUpdata:{
-          itemLength:function(){
-              return document.getElementsByClassName('cartItem').length
-          }
+
         },
         beforeMount:function(){
           this.$store.state.isBarshow = false

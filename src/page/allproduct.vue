@@ -16,69 +16,59 @@
       </div>
       <div class="proList">
         <div class="sort_box">
-           <ul>
-             <li @click="changeSort($event)" class="sortItem green">默认</li>
-             <li @click="changeSort($event)" class="sortItem" id="price">价格<b class=""></b></li>
-             <li @click="changeSort($event)" class="sortItem">销量</li>
-             <li @click="changeSort($event)" class="sortItem" id="haspro"><span></span>仅看有货</li>
+           <ul @click="changeSort($event)">
+             <li class="sortItem green">默认</li>
+             <li class="sortItem" id="price">价格<b class=""></b></li>
+             <li class="sortItem">销量</li>
+             <li class="sortItem" id="haspro"><span></span>仅看有货</li>
            </ul>
         </div>
         <div class="main_box">
-          <ul>
+          <ul @click="go([$router,'productInfo'])">
             <li>
-              <a href="/productInfo">
-                <div class="img_box">
-                  <img src="../assets/images/571f36f6N1f0791f5.jpg" alt="">
-                </div>
-                <div class="instr">
-                  <h5 class="proName">色相头摄像头摄像头色相头</h5>
-                  <span>￥399.00</span>
-                </div>
-              </a>
+              <div class="img_box">
+                <img src="../assets/images/571f36f6N1f0791f5.jpg" alt="">
+              </div>
+              <div class="instr">
+                <h5 class="proName">色相头摄像头摄像头色相头</h5>
+                <span>￥399.00</span>
+              </div>
             </li>
             <li>
-              <a href="/productInfo">
-                <div class="img_box">
-                  <img src="../assets/images/571f36f6N1f0791f5.jpg" alt="">
-                </div>
-                <div class="instr">
-                  <h5 class="proName">色相头摄像头摄像头色相头</h5>
-                  <span>￥399.00</span>
-                </div>
-              </a>
+              <div class="img_box">
+                <img src="../assets/images/571f36f6N1f0791f5.jpg" alt="">
+              </div>
+              <div class="instr">
+                <h5 class="proName">色相头摄像头摄像头色相头</h5>
+                <span>￥399.00</span>
+              </div>
             </li>
             <li>
-              <a href="/productInfo">
-                <div class="img_box">
-                  <img src="../assets/images/571f36f6N1f0791f5.jpg" alt="">
-                </div>
-                <div class="instr">
-                  <h5 class="proName">色相头摄像头摄像头色相头</h5>
-                  <span>￥399.00</span>
-                </div>
-              </a>
+              <div class="img_box">
+                <img src="../assets/images/571f36f6N1f0791f5.jpg" alt="">
+              </div>
+              <div class="instr">
+                <h5 class="proName">色相头摄像头摄像头色相头</h5>
+                <span>￥399.00</span>
+              </div>
             </li>
             <li>
-              <a href="/productInfo">
-                <div class="img_box">
-                  <img src="../assets/images/571f36f6N1f0791f5.jpg" alt="">
-                </div>
-                <div class="instr">
-                  <h5 class="proName">色相头摄像头摄像头色相头</h5>
-                  <span>￥399.00</span>
-                </div>
-              </a>
+              <div class="img_box">
+                <img src="../assets/images/571f36f6N1f0791f5.jpg" alt="">
+              </div>
+              <div class="instr">
+                <h5 class="proName">色相头摄像头摄像头色相头</h5>
+                <span>￥399.00</span>
+              </div>
             </li>
             <li>
-              <a href="/productInfo">
-                <div class="img_box">
-                  <img src="../assets/images/571f36f6N1f0791f5.jpg" alt="">
-                </div>
-                <div class="instr">
-                  <h5 class="proName">色相头摄像头摄像头色相头</h5>
-                  <span>￥399.00</span>
-                </div>
-              </a>
+              <div class="img_box">
+                <img src="../assets/images/571f36f6N1f0791f5.jpg" alt="">
+              </div>
+              <div class="instr">
+                <h5 class="proName">色相头摄像头摄像头色相头</h5>
+                <span>￥399.00</span>
+              </div>
             </li>
           </ul>
           <div class="button_box">
@@ -91,6 +81,7 @@
 
 <script>
     import blackHeader from '../components/black-header/black-header.vue'
+    import {mapMutations} from 'vuex'
     export default {
         name:'allproduct',
         components:{ blackHeader },
@@ -106,6 +97,9 @@
           this.changeTarBar(1);
         },
         methods:{
+          ...mapMutations([
+              'go'
+          ]),
           changeTarBar(index){
             var me = document.getElementsByClassName('weui-tabbar__item');
             setTimeout(()=>{
@@ -125,15 +119,13 @@
               for(var j= 0 ;j<5; j++){
                 document.getElementsByClassName('main_box')[0].childNodes[0].innerHTML += `
                 <li>
-                  <a href="/productInfo">
-                    <div class="img_box">
-                      <img src= "${url}" alt="">
-                    </div>
-                    <div class="instr">
-                      <h5 class="proName">${name}${j}</h5>
-                      <span>￥399.00</span>
-                    </div>
-                  </a>
+                  <div class="img_box">
+                    <img src= "${url}" alt="">
+                  </div>
+                  <div class="instr">
+                    <h5 class="proName">${name}${j}</h5>
+                    <span>￥399.00</span>
+                  </div>
                 </li>`
               }
           },
@@ -160,15 +152,13 @@
             for(var j= 0 ;j<5; j++){
               document.getElementsByClassName('main_box')[0].childNodes[0].innerHTML += `
                 <li>
-                  <a href="/productInfo">
-                    <div class="img_box">
-                      <img src= "${url}" alt="">
-                    </div>
-                    <div class="instr">
-                      <h5>${name}${j}</h5>
-                      <span>￥399.00</span>
-                    </div>
-                  </a>
+                  <div class="img_box">
+                    <img src= "${url}" alt="">
+                  </div>
+                  <div class="instr">
+                    <h5>${name}${j}</h5>
+                    <span>￥399.00</span>
+                  </div>
                 </li>`
             }
           }

@@ -8,6 +8,7 @@ import login from '../page/login.vue'
 import register from '../page/register.vue'
 import phoneLogin from '../page/phoneLogin.vue'
 import orderList from '../page/orderList.vue'
+import productInfo from '../page/productInfo.vue'
 Vue.use(Router);
 
 export default new Router({
@@ -49,6 +50,10 @@ export default new Router({
     {
       path: '/orderList/:id',
       component: orderList
+    },
+    {
+      path: '/productInfo',
+      component: productInfo
     },
   ]
 })
