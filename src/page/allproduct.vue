@@ -242,6 +242,7 @@
       .main_box{
         height: 420px;
         overflow:scroll;
+        padding-bottom:40px;
       }
       .main_box ul{
         li{

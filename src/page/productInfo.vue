@@ -18,12 +18,43 @@
           </span>
         </div>
         <div class="info-price">
-          ￥<span data-price="1849.00">1849.00</span>
+          ￥<span>1699.00</span>
         </div>
       </div>
       <div class="addCart_box">
         <div class="img_box"></div>
-        <div class="button_box"><span>￥9.90</span>加入购物车</div>
+        <div class="button_box">￥<span>1699.00</span>加入购物车</div>
+      </div>
+      <div class="select_kinds">
+        <div class="select_box">
+          <span>颜色</span>
+          <ul>
+            <li>深海蓝</li>
+            <li class="active">幻影黑</li>
+          </ul>
+        </div>
+        <div class="select_box">
+          <span>型号</span>
+          <ul>
+            <li class="active">裸机版</li>
+            <li>套装版</li>
+          </ul>
+        </div>
+        <div class="select_box">
+          <span>版本</span>
+          <ul>
+            <li class="active">64G</li>
+            <li>128G</li>
+          </ul>
+        </div>
+      </div>
+      <div class="num_box">
+        <span>数量</span>
+        <div class="button_box">
+          <span @click="reduce($event)" class="disabled">-</span>
+          <span>1</span>
+          <span @click="add($event)">+</span>
+        </div>
       </div>
     </div>
 </template>
@@ -44,7 +75,6 @@
         this.$store.state.isBarshow = false
       },
       mounted:function(){
-
         this.demo06_list = [{
           url: 'javascript:',
           img: 'http://'+this.$store.state.serverIP+'/images/59264e07N797a8757.jpg',
@@ -75,6 +105,22 @@
             return
           }
           this.islike = !this.islike;
+        },
+        add(e){
+          e.target.previousElementSibling.previousElementSibling.setAttribute('class','' )
+          var num = parseInt(e.target.previousElementSibling.innerHTML);
+          e.target.previousElementSibling.innerHTML = num+1
+        },
+        reduce(e){
+          if(parseInt(e.target.nextElementSibling.innerHTML)==2){
+            e.target.setAttribute('class','disabled' )
+            var num = parseInt(e.target.nextElementSibling.innerHTML);
+            e.target.nextElementSibling.innerHTML = num-1
+          }else if(parseInt(e.target.nextElementSibling.innerHTML)>1){
+            e.target.setAttribute('class','' )
+            var num = parseInt(e.target.nextElementSibling.innerHTML);
+            e.target.nextElementSibling.innerHTML = num-1
+          }
         }
       }
     }
@@ -174,7 +220,82 @@
       background:#FFF;
       color: #F6382C;
       line-height: 2.0rem;
+      border-bottom:1px solid #E5E5E5;
     }
+  }
+  .select_kinds{
+    border-top:1px solid #e5e5e5;
+    border-bottom:1px solid #e5e5e5;
+    background: #fff;
+    padding:0 10px;
+    .select_box{
+      overflow:hidden;
+      padding-tOP:10px;
+      border-bottom:1px solid #e5e5e5;
+      span{
+        float:left;
+        font-size:80%;
+        margin:0 0px 5px 0px;
+        padding:8px 0px;
+      }
+      ul{
+        margin-left:50px;
+        li{
+          float:left;
+          font-size:80%;
+          border:1px solid #e5e5e5;
+          border-radius:5px;
+          margin:0 5px 10px 5px;
+          padding:8px 16px;
+        }
+        li.active{
+          color:#FD532D;
+          border:1px solid #FD532D;
+        }
+      }
+    }
+    .select_box:last-child{
+      border-bottom: none;
+    }
+  }
+  .num_box{
+    padding:0 10px;
+    background: #fff;
+    overflow:hidden;
+    border-bottom:1px solid #e5e5e5;
+    >span{
+      float:left;
+       padding:10px 0;
+     }
+    >div{
+      float:right;
+      padding:10px;
+      span{
+        height:30px;
+        line-height: 30px;
+        display: inline-block;
+        text-align: center;
+      }
+      span:nth-child(2n+1){
+        width:30px;
+        border:1px solid #eee;
+        background: #F6F6F6;
+        border-radius: 5px 0 0 5px;
+      }
+      span:nth-child(3){
+        border-radius: 0px 5px 5px 0px;
+      }
+      span.disabled{
+        background: #B6B6B6;
+      }
+      span:nth-child(2n){
+        border-top:1px solid #eee;
+        width:40px;
+        margin-left:-5px;
+        margin-right:-5px;
+        border-bottom:1px solid #eee;
+      }
+     }
   }
 }
 </style>
