@@ -56,21 +56,27 @@
           <span @click="add($event)">+</span>
         </div>
       </div>
+      <group class="margin_bottom">
+        <x-address :title="title2" v-model="value2" raw-value value-text-align="left" :list="addressData" ></x-address>
+      </group>
     </div>
 </template>
 
 <script>
     import blackHeader from '../components/black-header/black-header.vue'
-    import { Swiper }  from 'vux'
+    import { Swiper,XAddress,Group,ChinaAddressV3Data }  from 'vux'
     export default {
       name:'productInfo',
       data(){
           return {
             demo06_list: [],
             islike : false,
+            addressData: ChinaAddressV3Data,
+            title2: '配送至',
+            value2: ['天津市', '市辖区', '和平区'],
           }
       },
-      components:{ blackHeader,Swiper },
+      components:{ blackHeader,Swiper,Group,XAddress },
       beforeMount:function(){
         this.$store.state.isBarshow = false
       },
@@ -129,7 +135,25 @@
 <!-- Add "scoped" attribute to limit CSS to this component only -->
 <style lang="less">
 #productInfo{
-    background:#F5F5F5;
+
+  background:#F5F5F5;
+  .margin_bottom{
+    margin-bottom:10px;
+  }
+  .vux-no-group-title{
+    margin-top:0;
+    font-size: 80%;
+  }
+  .weui-cell__hd{
+    margin-right:40px;
+    font-size: 80%;
+    label{
+      width:60px;
+    }
+  }
+  .weui-cell{
+    padding:20px 10px;
+  }
   .vux-slider > .vux-swiper > .vux-swiper-item > a > .vux-swiper-desc{
     display:none;
   }
@@ -262,10 +286,12 @@
     padding:0 10px;
     background: #fff;
     overflow:hidden;
-    border-bottom:1px solid #e5e5e5;
+    font-size:80%;
     >span{
       float:left;
-       padding:10px 0;
+     padding:10px 0;
+       height:30px;
+       line-height: 30px;
      }
     >div{
       float:right;
