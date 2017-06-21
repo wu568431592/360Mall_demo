@@ -28,21 +28,21 @@
       <div class="select_kinds">
         <div class="select_box">
           <span>颜色</span>
-          <ul>
+          <ul @click="selectType($event)">
             <li>深海蓝</li>
             <li class="active">幻影黑</li>
           </ul>
         </div>
         <div class="select_box">
           <span>型号</span>
-          <ul>
+          <ul @click="selectType($event)">
             <li class="active">裸机版</li>
             <li>套装版</li>
           </ul>
         </div>
         <div class="select_box">
           <span>版本</span>
-          <ul>
+          <ul @click="selectType($event)">
             <li class="active">64G</li>
             <li>128G</li>
           </ul>
@@ -73,7 +73,7 @@
             islike : false,
             addressData: ChinaAddressV3Data,
             title2: '配送至',
-            value2: ['天津市', '市辖区', '和平区'],
+            value2: ['北京市', '市辖区', '海淀区'],
           }
       },
       components:{ blackHeader,Swiper,Group,XAddress },
@@ -112,6 +112,13 @@
           }
           this.islike = !this.islike;
         },
+        selectType(e){
+          var liList = e.target.parentNode.children;
+          for(var i = 0 ; i<liList.length;i++){
+            liList[i].setAttribute('class','');
+          }
+          e.target.setAttribute('class','active')
+        },
         add(e){
           e.target.previousElementSibling.previousElementSibling.setAttribute('class','' )
           var num = parseInt(e.target.previousElementSibling.innerHTML);
@@ -135,7 +142,6 @@
 <!-- Add "scoped" attribute to limit CSS to this component only -->
 <style lang="less">
 #productInfo{
-
   background:#F5F5F5;
   .margin_bottom{
     margin-bottom:10px;
