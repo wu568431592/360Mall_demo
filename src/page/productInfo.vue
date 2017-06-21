@@ -70,6 +70,7 @@
         <div class="info_img">
           <ul>
             <li v-for="i in baseList">
+              <span><img src="../assets/images/default_img.jpg"></span>
               <x-img :src="i" @on-success="success" @on-error="error" class="ximg-demo" error-class="ximg-error" :offset="-100" container="#vux_view_box_body"></x-img>
             </li>
           </ul>
