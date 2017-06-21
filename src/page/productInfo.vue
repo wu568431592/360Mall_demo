@@ -59,24 +59,41 @@
       <group class="margin_bottom">
         <x-address :title="title2" v-model="value2" raw-value value-text-align="left" :list="addressData" ></x-address>
       </group>
+      <div class="info_main">
+        <div class="info_title">
+          <ul>
+            <li class="active">产品详情</li>
+            <li>规格参数</li>
+            <li>购买咨询</li>
+          </ul>
+        </div>
+        <div class="info_img">
+          <ul>
+            <li v-for="i in baseList">
+              <x-img :src="i" @on-success="success" @on-error="error" class="ximg-demo" error-class="ximg-error" :offset="-100" container="#vux_view_box_body"></x-img>
+            </li>
+          </ul>
+        </div>
+      </div>
     </div>
 </template>
 
 <script>
     import blackHeader from '../components/black-header/black-header.vue'
-    import { Swiper,XAddress,Group,ChinaAddressV3Data }  from 'vux'
+    import { Swiper,XAddress,Group,ChinaAddressV3Data,XImg }  from 'vux'
     export default {
       name:'productInfo',
       data(){
           return {
             demo06_list: [],
+            baseList:[],
             islike : false,
             addressData: ChinaAddressV3Data,
             title2: '配送至',
             value2: ['北京市', '市辖区', '海淀区'],
           }
       },
-      components:{ blackHeader,Swiper,Group,XAddress },
+      components:{ blackHeader,Swiper,Group,XAddress,XImg },
       beforeMount:function(){
         this.$store.state.isBarshow = false
       },
@@ -103,6 +120,15 @@
           url: 'javascript:',
           img: 'http://'+this.$store.state.serverIP+'/images/59264e08Nbb6c649b.jpg',
         }];
+        this.baseList=[
+          'http://'+this.$store.state.serverIP+'/images/592247e0N40ce974e.jpg',
+          'http://'+this.$store.state.serverIP+'/images/592247e1Nc6d9a5f2.jpg',
+          'http://'+this.$store.state.serverIP+'/images/592247d8Nbb042112.jpg',
+          'http://'+this.$store.state.serverIP+'/images/592247e1N19d0a8d3.jpg',
+          'http://'+this.$store.state.serverIP+'/images/592247e1Nad990153.jpg',
+          'http://'+this.$store.state.serverIP+'/images/592247e0N5f570061.jpg',
+
+        ]
       },
       methods:{
         likeme(e){
@@ -134,6 +160,16 @@
             var num = parseInt(e.target.nextElementSibling.innerHTML);
             e.target.nextElementSibling.innerHTML = num-1
           }
+        },
+        success (src, ele) {
+          //console.log('success load', src)
+          const span = ele.parentNode.querySelector('span')
+          ele.parentNode.removeChild(span)
+        },
+        error (src, ele, msg) {
+          //console.log('error load', msg, src)
+          const span = ele.parentNode.querySelector('span')
+          span.innerText = 'load error'
         }
       }
     }
@@ -328,6 +364,42 @@
         border-bottom:1px solid #eee;
       }
      }
+  }
+  .info_main{
+    background: #fff;
+    .info_title{
+      padding:10px;
+      border-top:1px solid #e5e5e5;
+      border-bottom:1px solid #e5e5e5;
+      ul{
+        overflow: hidden;
+        li{
+          float:left;
+          padding:5px 10px;
+          font-size: 80%;
+          width:33%;
+          text-align: center;
+        }
+        li:nth-child(2){
+          border-left:1px solid #e5e5e5;
+          border-right:1px solid #e5e5e5;
+        }
+        li.active{
+          color:#80CB19;
+        }
+      }
+    }
+    .info_img{
+      padding-bottom:15px;
+      padding-top:15px;
+      li{
+        text-align: center;
+        img{
+          width:93%;
+        }
+      }
+
+    }
   }
 }
 </style>
