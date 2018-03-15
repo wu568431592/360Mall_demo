@@ -7,7 +7,7 @@ import axios from 'axios'
 Vue.use(Vuex);
 var state;
 state ={
-  serverIP : '192.168.83.153',
+  serverIP : '172.17.161.67',
   isBarshow: true,
   userList:[
     {"userPhoneNum":'17310161773',"userPassword":'123123'},
